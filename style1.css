@@ -267,6 +267,9 @@ header a:hover {
 
 
 .profile-bg {
+   background-image: url(graphics/Profile-bg.png);
+   background-repeat: no-repeat;
+   background-size: cover;
     width: 100%;
     height: calc(100% - 120px);
     padding: 7rem 0rem;
@@ -284,12 +287,16 @@ header a:hover {
 }
 
 .profile-info-img {
-  height: 320px;
-  background-image: url(img/profile-images/profile-0.jpg);
-  border-radius: 10px 10px 0px 0px;
+   background-image: url();
+   background-color: hotpink ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100px;
   display: flex;
-  align-content: space-between;
+  align-content: centre;
   flex-wrap: wrap;
+  width: 200px;
+ height: 200px;
 }
 
 .profile-info-img p {
@@ -316,39 +323,37 @@ header a:hover {
   border-radius: 100px;
   font-size: 12px;
   line-height: 20px;
-  color: #111;
-  font-family: Roboto;
-  font-weight: 500;
+  color: #000;
+  font-family: 'Gotham Black';
   cursor: pointer;
-  margin: 20px 20px;
+  margin: 100px 20px;
   text-decoration: none;
+ 
 }
 
 .follow-btn:hover {
-  background-color: #3F97EF;
+  background-color: #000;
   transition: all 200ms ease-in-out;
   color: #fff;
 }
 
 .profile-info-about {
-  background-color: #161616;
   padding: 10px 20px;
-  border-radius: 0px 0px 10px 10px;
 }
 
 .profile-info-about h3 {
   font-size: 12px;
   line-height: 20px;
-  color: #fff;
-  font-family: Roboto;
+  color: #000;
+  font-family: 'Gotham Black';
   font-weight: 700;
   padding: 10px 0;
 }
 
 .profile-info-about p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
-  color: #fff;
+  color: #000;
   font-family: Roboto;
   font-weight: 300;
 }
@@ -361,23 +366,21 @@ header a:hover {
   width: calc(100% - 20px);
   margin-left: 20px;
   padding-bottom: 30px;
-  background-color: #161616;
   border-radius: 10px 10px 10px 10px;
 }
 
 .profile-intro h3 {
   font-size: 18px;
   line-height: 20px;
-  color: #fff;
-  font-family: Roboto;
-  font-weight: 700;
+  color: #000;
+  font-family: 'Gotham Black';
   padding: 30px 20px 10px;
 }
 
 .profile-intro p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
-  color: #fff;
+  color: #000;
   font-family: Roboto;
   font-weight: 300;
   padding: 0px 20px;
@@ -391,13 +394,20 @@ header a:hover {
   padding-bottom: 10px;
   background-color: #fff;
   border-radius: 10px 10px 10px 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  z-index: 10;
 }
 
 .profile-posts h3 {
   font-size: 18px;
   line-height: 20px;
   color: #111;
-  font-family: Roboto;
+  font-family: 'Gotham Black';
   font-weight: 900;
   padding: 30px 20px 10px;
 }
@@ -405,7 +415,7 @@ header a:hover {
 .profile-posts p {
   font-size: 12px;
   line-height: 20px;
-  color: #111;
+  color: #000;
   font-family: Roboto;
   font-weight: 500;
   padding: 10px 20px 0;
@@ -419,8 +429,8 @@ header a:hover {
 .profile-posts h2 {
   font-size: 18px;
   line-height: 20px;
-  color: #111;
-  font-family: Roboto;
+  color: #000;
+  font-family: 'Gotham Black';
   font-weight: 700;
   padding: 0px 20px 0px;
 }

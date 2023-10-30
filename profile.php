@@ -5,7 +5,7 @@ include_once "header.php";
 
 include "classes/dbh.classes.php";
 include "classes/profileinfo.classes.php";
-include "classes/profileinfo-contr.classes.php";
+//include "classes/profileinfo-contr.classes.php";
 include "classes/profileinfo-view.classes.php";
 
 $profileInfo = new ProfileInfoView();
@@ -16,9 +16,16 @@ $profileInfo = new ProfileInfoView();
         <div class="wrapper">
             <div class="profile-info">
                 <div class="profile-info-img">
-                    <img src="img/bwProfile pic 1.png" alt="profile" class="profile-info-img">
+
                     <p> <?php
-                        echo $_SESSION["username"];
+                        //  if (isset($_SESSION["username2"])) {
+                        //     echo $_SESSION["username"];
+                        //  }
+
+                        if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+                            echo $_SESSION["username"];
+                        }
+
                         ?></p>
                     <div class="break"></div>
                     <a href="profilesettings.php" class="follow-btn">PROFILE SETTINGS</a>

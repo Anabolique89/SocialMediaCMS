@@ -1,5 +1,6 @@
-<?php
 
+<?php
+//use this file for changing data inside database
 class ProfileInfoContr extends ProfileInfo
 {
     private $userID;

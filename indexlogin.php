@@ -26,14 +26,14 @@ session_start();
 
                 <form action="includes/login.inc.php" method="post" class="signup-form">
                     <div class="input-wrapper">
-                        <input type="text" name="uid" placeholder="Username" class="input-text">
+                        <input type="text" name="username" placeholder="Username" class="input-text">
                     </div>
                     <div class="input-wrapper">
                         <input type="password" name="pwd" placeholder="Password" class="input-text">
                     </div>
                     <br>
                     <button type="submit" name="submit" class="submit-button btn">LOGIN</button>
-                    <p class="bottom-p-text">Don't have an account yet? Sign up here!</p>
+                    <p class="bottom-p-text">Don't have an account yet? Sign up <a class="link" href="indexsignup.php"> here!</a></p>
                 </form>
             </div>
         </div>

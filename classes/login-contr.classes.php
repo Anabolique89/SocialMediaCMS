@@ -8,28 +8,30 @@ class loginContr extends Login
 
     public function __construct($username, $pwd)
     {
-        $this->uid = $username;
+        $this->username = $username;
         $this->pwd = $pwd;
     }
 
     public function loginUser()
     {
-        if ($this->emptyInput() == false) {
+
+
+        if (!$this->emptyInput() == false) {
             // echo "Empty input!";
             header("location: ../indexlogin.php?error=emptyinput");
             exit();
         }
 
-        $this->getUser($this->uid, $this->pwd);
+        $this->getUser($this->username, $this->pwd);
     }
 
     private function emptyInput()
     {
-        $result = "";
-        if (empty($this->uid) || empty($this->pwd)) {
-            $result = false;
-        } else {
+        $result = false;
+        if (empty($this->username) || empty($this->pwd)) {
             $result = true;
+        } else {
+            $result = false;
         }
         return $result;
     }

@@ -20,7 +20,7 @@ session_start();
             <div class="navigation-container">
                 <div class="logo-container"><a href="homepage.php"><img src="./img/LOGOBlack.png" alt="logo white"></a></div>
                 <ul class="menu-main">
-                    <li><a href="webpage.php">HOME</a></li>
+                    <li><a href="homepage.php">HOME</a></li>
                     <li><a href="about.php">ABOUT</a></li>
                     <li><a href="map.php">MAP</a></li>
                     <li><a href="features.php">FEATURES</a></li>

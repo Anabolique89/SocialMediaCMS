@@ -10,11 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "../classes/dbh.classes.php";
     include "../classes/login.classes.php";
     include "../classes/login-contr.classes.php";
+
+
     $login = new LoginContr($username, $pwd);
 
     // Running error handlers and user signup
+
     $login->loginUser();
 
+
+
     // Going to back to front page
-    header("location: ../webpage.php?error=none");
+    header("location: ../profile.php?error=none");
 }
