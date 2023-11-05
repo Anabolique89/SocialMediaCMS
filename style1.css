@@ -259,13 +259,13 @@ header a:hover {
     display: block;
     margin: 0 auto;
 }
+img.logo-container{
+  width:20px;
+}
 /*----PROFILE----*/
 .profile{
         width: 100%;
-     
     }
-
-
 .profile-bg {
    background-image: url(graphics/Profile-bg.png);
    background-repeat: no-repeat;
@@ -509,4 +509,65 @@ header a:hover {
 .profile-settings button:hover {
   transition: all 200ms ease-in-out;
   color: #fff;
+}
+
+/* Gallery */
+.cases-links{
+   
+    padding: 5rem;
+
+}
+
+.cases-links h2 {
+  padding-top: 20px;
+}
+
+.cases-links h2 {
+  font-family:'Gotham Black';
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+ .gallery-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+.gallery-upload{
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+
+.gallery-container a {
+  width: 23%;
+  text-decoration: none;
+}
+
+ .gallery-container a div {
+  width: 100%;
+  height: 200px;
+  background-color: red;
+  border-radius: 20px;
+}
+
+ .gallery-container a h3 {
+  font-family: 'Gotham Black';
+  font-size: 14px;
+  color: #000;
+  padding: 6px 0;
+}
+
+.gallery-container a p {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 300;
+  color: #000;
+  padding-bottom: 10px;
 }
