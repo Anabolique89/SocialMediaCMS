@@ -18,7 +18,7 @@ session_start();
 
         <nav class="main-nav">
             <div class="navigation-container">
-                <div class="logo-container"><a href="homepage.php"><img src="./img/LOGOBlack.png" alt="logo white"></a></div>
+                <div class="logo-container"><a href="webpage.php"><img class="logo" src="./img/LOGOBlack.png" alt="logo white"></a></div>
                 <ul class="menu-main">
                     <li><a href="webpage.php">HOME</a></li>
                     <li><a href="about.php">ABOUT</a></li>
@@ -39,7 +39,7 @@ session_start();
                 } else {
                 ?>
                     <li><a href="indexsignup.php">SIGN UP</a></li>
-                    <li><a href="indexlogin.php" class="header-login-a">LOGIN</a></li>
+                    <li><a href="indexlogin.php" class="header-login-a ">LOGIN</a></li>
                 <?php
                 }
                 ?>

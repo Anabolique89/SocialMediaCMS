@@ -14,7 +14,7 @@ class Signup extends Dbh
 
     protected function setUser($username, $pwd, $email, $profile)
     {
-        //seperate data from query to prevent sql injection
+        //separate data from query to prevent sql injection
 
         $stmt = $this->connect()->prepare('INSERT INTO user (username, pwd, email, UserProfile) VALUES (?, ?, ?, ?);');
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -32,7 +32,7 @@ class Signup extends Dbh
 
     protected function checkUser($username, $email)
     {
-        //seperate data from query to prevent sql injection
+        //separate data from query to prevent sql injection
 
         $stmt = $this->connect()->prepare('SELECT UserID FROM user WHERE UserID = ? OR email = ?;');
         if (!$stmt->execute(array($username, $email))) {

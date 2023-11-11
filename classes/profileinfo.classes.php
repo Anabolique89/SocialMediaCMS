@@ -25,6 +25,10 @@ class ProfileInfo extends Dbh
         $stmt = $this->connect()->prepare('UPDATE profiles SET profilesAbout = ?, profileIntroTitle = ?, profileIntroText = ? WHERE UserID = ?;');
         if (!$stmt->execute(array($profileAbout, $profileTitle, $profileText, $userID))) {
             $stmt = null;
+
+            //array for errors
+            // $_SESSION["errors"] = "error=stmtfailed";
+
             header("location: ../profile.php?error=stmtfailed");
             exit();
         }

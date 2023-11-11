@@ -16,11 +16,24 @@ $profileInfo = new ProfileInfoView();
         <div class="wrapper">
             <div class="profile-info">
                 <div class="profile-info-img">
+                    <?php
+                    // include_once 'includes/dbh.inc.php';
+                    //  $sql = "SELECT * FROM profileimg";
+                    // $stmt = mysqli_stmt_init($conn);
+                    //  if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    //     echo "SQL statement failed";
+                    //  } else {
+                    //   mysqli_stmt_execute($stmt);
+                    //   $result = mysqli_stmt_get_result($stmt);
+                    //   while ($row = mysqli_fetch_assoc($result)) {
+                    ////       echo '   <a href="#">
+                    //      <img class="profile-info-img" style="background-image: url(artworks/' . $row["NewImgName"] . ');">
+                    //    </a> ';
+                    //     }
+                    //  }
+                    ?>
 
                     <p> <?php
-                        //  if (isset($_SESSION["username2"])) {
-                        //     echo $_SESSION["username"];
-                        //  }
 
                         if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
                             echo $_SESSION["username"];
@@ -61,16 +74,6 @@ $profileInfo = new ProfileInfoView();
                         <p>16:11 - 11/11/2021</p>
                     </div>
                 </div>
-                <!-- trying to add new image to database stoing in project folder 
-                <div class="add-new-artwork">
-                    <p class="artwork">Add new artwork</p>
-                    <form action="upload.php" class="artwork" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file">
-                        <button class="artwork-submit" type="submit" name="submit">UPLOAD</button>
-
-                    </form>
-                </div>
--->
 
             </div>
         </div>
@@ -78,13 +81,13 @@ $profileInfo = new ProfileInfoView();
 
         <div class="cases-links">
             <div class="gallery-wrapper">
-                <h2 class="Artworks-title">Gallery</h2>
+                <h2 class="Artworks-title">Artworks</h2>
                 <div class="gallery-container">
                     <?php
                     include_once 'includes/dbh.inc.php';
-                    $sql = "SELECT * FROM artwork ORDER BY OrderArtwork DESC";
+                    $sql = "SELECT * FROM artwork2 ORDER BY OrderArtwork DESC";
                     $stmt = mysqli_stmt_init($conn);
-                    if (mysqli_stmt_prepare($stmt, $sql)) {
+                    if (!mysqli_stmt_prepare($stmt, $sql)) {
                         echo "SQL statement failed";
                     } else {
                         mysqli_stmt_execute($stmt);
@@ -108,6 +111,7 @@ $profileInfo = new ProfileInfoView();
         <input type="text" name="filename" placeholder="File name...">
         <input type="text" name="filetitle" placeholder="Image title...">
         <input type="text" name="filedesc" placeholder="Image Description...">
+       
         <input type="file" name="file">
         <button type="submit" name="submit">UPLOAD</button>
     </form>

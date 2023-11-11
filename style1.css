@@ -101,8 +101,18 @@ header nav .menu-member li a {
 }
 
 .header-login-a {
-    background-color: #3F97EF;
-    border-radius: 4px;
+    font-family: 'Gotham Black';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+   cursor: pointer;
 }
 
 header a:hover {
@@ -110,10 +120,22 @@ header a:hover {
 }
 
 .header-login-a:hover {
-    background-color: #2073C7;
+    background-color: #fff;
+    color: #000;
     opacity: 100%;
 }
+.logo{
+  width: 40%;
+}
 
+.homepage{
+ /* background-color: #4158D0;
+background-image: linear-gradient(0deg, #4158D0 0%, #C850C0 30%, #c2f9cd 66%, #5bd2e7 100%); */
+background-color: #21D4FD;
+background-image: linear-gradient(19deg, #21D4FD 0%, #8921ff 100%);
+
+
+}
 .index-intro {
     width: 100%;
     height: 580px;
@@ -122,11 +144,14 @@ header a:hover {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.graphics{
+  width: 80;
+  position: absolute;
+  z-index: 1;
+}
 .index-intro-bg {
     width: 100%;
     height: 100%;
-    background: rgba(38, 48, 62, 0.94);
 }
 
 .index-intro-bg .wrapper {
@@ -134,6 +159,8 @@ header a:hover {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
 .index-intro-c1, .index-intro-c2 {
@@ -166,18 +193,19 @@ header a:hover {
 }
 
 .index-intro-c2 a {
-    font-family: Roboto;
+    font-family: 'Gotham Black';
     color: #fff;
     font-size: 16px;
     padding: 10px 16px;
-    background-color: #3F97EF;
+    background-color: #000;
     margin-left: 60px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 20px;
 }
 
 .index-intro-c2 a:hover {
-    background-color: #2073C7;
+    background-color: #fff;
+    color: #000;
 }
 
 .index-login {
@@ -515,11 +543,14 @@ img.logo-container{
 .cases-links{
    
     padding: 5rem;
-
+    
 }
+
 
 .cases-links h2 {
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .cases-links h2 {
@@ -533,14 +564,14 @@ img.logo-container{
  .gallery-container {
   padding-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding-bottom: 40px;
 }
 .gallery-upload{
   padding-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 40px;
 }
@@ -550,11 +581,14 @@ img.logo-container{
   text-decoration: none;
 }
 
- .gallery-container a div {
-  width: 100%;
+.image{
+  display: flex;
+  width: 80%;
   height: 200px;
   background-color: red;
   border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
  .gallery-container a h3 {
