@@ -23,36 +23,35 @@ $profileInfo = new ProfileInfoView();
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $userID = $row['UserId'];
-                        $sqlImg = "SELECT * FROM profileimg WHERE UserID='$userID'";
+                        $id = $row['UserID'];
+                        $sqlImg = "SELECT * FROM profileimg WHERE UserID='$id'";
                         $resultImg = mysqli_query($conn, $sqlImg);
                         while ($rowImg = mysqli_fetch_assoc($resultImg)) {
-
                             echo '<div class="user-container">';
-
                             if ($rowImg['status'] == 0) {
-                                echo '<img src ="artworks/' . $id . '.jpg?' . mt_rand() . '">';
+                                echo "<img src ='artworks/" . $id . '.jpg?' . mt_rand() . '">';
                             } else {
 
                                 //this is the default image I want to display if the user has not uploaded an image already
-                                echo '<img src ="./artworks/Athena - Copy.jpg">';
+                                echo "<img src ='artworks/Athena - Copy.jpg'>";
                             }
                             echo "<p>" . $row['username'] . "</p>";
-                            echo '</div>';
+                            echo "</div>";
                         }
                     }
                 } else {
                     echo "There are no users yet!";
                 }
-
-                if (isset($_SESSION['username'])) {
-                    if ($_SESSION['username'] == 1) {
-
-                        echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
-<input type="file" name="file">
-<button type="submit" name="submit">UPLOAD</button>
-</form>';
+                if (isset($_SESSION['userid'])) {
+                    if ($_SESSION['userid'] == 1) {
+                        echo "You are logged in as user #1";
                     }
+                    echo '  <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file">
+                    <button type="submit" name="submit">UPLOAD</button>
+                </form>';
+                } else {
+                    echo "You are not logged in!";
                 }
                 ?>
 
