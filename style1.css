@@ -315,7 +315,7 @@ img.logo-container{
 }
 
 .profile-info-img {
-   background-image: url();
+  
    background-color: hotpink ;
   background-repeat: no-repeat;
   background-size: cover;
@@ -564,7 +564,7 @@ img.logo-container{
  .gallery-container {
   padding-top: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 40px;
 }
@@ -604,4 +604,70 @@ img.logo-container{
   font-weight: 300;
   color: #000;
   padding-bottom: 10px;
+}
+/* Profile pic on profilesettings.php page */
+.user-container img{
+  background-color: hotpink ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100px;
+  display: flex;
+  align-content: centre;
+  flex-wrap: wrap;
+  width: 0 auto;
+ height: 50px;
+}
+
+.profile-change-wrapper{
+display: flex;
+flex-direction: row;
+}
+/*gallery form upload img */
+.signup-form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.form-wrapper{
+  width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.input-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 1.7rem 0rem;
+}
+
+.input-wrapper .input-label, .input-wrapper .input-text{
+position: absolute;
+width: 80%;
+}
+
+.input-wrapper .input-text{
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #EEE;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  transition: all 0.2s ease;
+  background: #E5F3FE;
+}
+.input-wrapper .input-text:focus{
+  box-shadow: inset 2px 2px 1px #BABECC, inset -2px -2px 5px #EEE;
+}
+.input-wrapper .input-label{
+  left: 1rem;
+  text-shadow: 1px 1px 1px #FFF;
+  pointer-events:none;
+  transition: all 0.6s ease;
+}
+.input-text:valid ~ .input-label, .input-text:focus ~ .input-label{
+  font-size: 0.8rem;
+  transform: translate(-0.2rem, -1.96rem);
+  color: #AAA;
 }

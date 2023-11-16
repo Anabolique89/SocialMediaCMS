@@ -14,44 +14,44 @@ $profileInfo = new ProfileInfoView();
                 <h3>PROFILE SETTINGS</h3>
                 <p>Change your profile picture here!</p>
 
+                <div class="profile-change-wrapper">
+                    <?php
+                    //trying to change profile picture here! - but first I'm trying to display a picture next to my form - which is not working. 
+                    include_once 'includes/dbh.inc.php';
 
-                <?php
-                //trying to change profile picture here! - but first I'm trying to display a picture next to my form - which is not working. 
-                include_once 'includes/dbh.inc.php';
+                    // $sql = "SELECT * FROM user";
+                    // $result = mysqli_query($conn, $sql);
+                    // if (mysqli_num_rows($result) > 0) {
+                    //     while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $_SESSION['userid'];
+                    $sqlImg = "SELECT * FROM profileimg WHERE UserID='$id'";
+                    $resultImg = mysqli_query($conn, $sqlImg);
+                    while ($rowImg = mysqli_fetch_assoc($resultImg)) {
+                        echo '<div class="user-container">';
+                        if ($rowImg['status'] == 0) {
+                            echo "<img src='artworks/" . $rowImg['NewImgName'] . "'>";
+                        } else {
 
-                // $sql = "SELECT * FROM user";
-                // $result = mysqli_query($conn, $sql);
-                // if (mysqli_num_rows($result) > 0) {
-                //     while ($row = mysqli_fetch_assoc($result)) {
-                $id = $_SESSION['userid'];
-                $sqlImg = "SELECT * FROM profileimg WHERE UserID='$id'";
-                $resultImg = mysqli_query($conn, $sqlImg);
-                while ($rowImg = mysqli_fetch_assoc($resultImg)) {
-                    echo '<div class="user-container">';
-                    if ($rowImg['status'] == 0) {
-                        echo "<img src='artworks/" . $rowImg['NewImgName'] . "'>";
-                    } else {
-
-                        //this is the default image I want to display if the user has not uploaded an image already
-                        echo "<img src ='artworks/Default.jpg'>";
+                            //this is the default image I want to display if the user has not uploaded an image already
+                            echo "<img src ='artworks/Default.jpg'>";
+                        }
+                        echo "</div>";
                     }
-                    echo "</div>";
-                }
 
 
-                if (isset($_SESSION['userid'])) {
-                    echo '  <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    if (isset($_SESSION['userid'])) {
+                        echo '  <form action="upload.php" method="POST" enctype="multipart/form-data">
                     <input type="file" name="file">
                     <button type="submit" name="submit">UPLOAD</button>
                 </form>';
-                } else {
-                    echo "You are not logged in!";
-                }
+                    } else {
+                        echo "You are not logged in!";
+                    }
 
-                ?>
+                    ?>
 
 
-
+                </div>
                 <!-- everything below works -->
                 <p>Change your about section here!</p>
                 <form action="includes/profileinfo.inc.php" method="post">
