@@ -1,76 +1,15 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-include_once "header.php";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
 
-?>
-<main class="homepage">
-    <!--insert carousel hero section here-->
-    <section class="index-intro">
-        <div class="index-intro-bg">
-
-            <div class="wrapper">
-                <div class="index-intro-c1">
-
-                    <div class="video"><img src="graphics/szxs.png" alt="" class="hero-graphic1"></div>
-                    <p>A platform that connects the urban art community worldwide and allows artists to explore new terrain and expand their creative talents easily all the while meeting new people and sharing new experiences with fellow artists. </p>
-                </div>
-                <div class="index-intro-c2">
-                    <h2>Welcome to<br>ArtZoro</h2>
-                    <a clas="header-login-a" href="map.php">FIND WALLS</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="Artwork-gallery-main">
-
-        <div class="cases-links">
-
-            <h2 class="Artworks-title">Artworks Feed</h2>
-            <div class="gallery-container">
-                <?php
-                include_once 'includes/dbh.inc.php';
-                $sql = "SELECT * FROM artwork2 ORDER BY OrderArtwork DESC";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "SQL statement failed";
-                } else {
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '   <a href="#">
-                <div class="image" style="background-image: url(artworks/' . $row["ImgFullNameArtwork"] . ');"></div>
-                <h3>' . $row["TitleArtwork"] . '</h3>
-                <p>' . $row["DescArtwork"] . '</p>
-            </a> ';
-                    }
-                }
-
-
-                ?>
-            </div>
-        </div>
-    </section>
-    <!-- publish new walls section -->
-    <section class="index-intro">
-        <div class="index-intro-bg">
-
-            <div class="wrapper">
-                <div class="index-intro-c2">
-                    <h2>Publish new<br>Walls</h2>
-                    <a clas="header-login-a" href="map.php">ADD NEW WALL</a>
-                </div>
-                <div class="index-intro-c1">
-
-                    <div class="video">
-                        <img src="graphics/szxc.png" alt="" class="hero-graphic">
-                    </div>
-                    <p>If you are an artist or a stakeholder and you want to share a new painted wall with the world for them to paint on or just explore in a certain location, we are here to make that happen. Just contact us and we will verify the information and make it happen! </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
+<body>
     <div class="main"></div>
     <div class="footer">
         <div class="bubbles">
@@ -205,10 +144,10 @@ include_once "header.php";
         </div>
         <div class="content">
             <div>
-                <div><b>ArtZoro</b><a href="#">About</a><a href="#">Terms&Conditions</a><a href="#">Privacy Policy</a><a href="#">Community</a><a href="#">FAQ'S</a></div>
-                <div><b>Personal</b><a href="#">My Account</a><a href="#">Favourites</a><a href="#">Add Walls</a><a href="#">Contact</a></div>
-                <div><b>Community</b><a href="#">Wall Feed</a><a href="#">Stores</a><a href="#">Sponsors</a><a href="#">Events</a><a href="#">Register Event</a></div>
-                <div><b>Promotions</b><a href="#">Join Event</a><a href="#">Create Ads</a><a href="#"></a><a href="#"></a></div>
+                <div><b>Eldew</b><a href="#">Secuce</a><a href="#">Drupand</a><a href="#">Oceash</a><a href="#">Ugefe</a><a href="#">Babed</a></div>
+                <div><b>Spotha</b><a href="#">Miskasa</a><a href="#">Agithe</a><a href="#">Scesha</a><a href="#">Lulle</a></div>
+                <div><b>Chashakib</b><a href="#">Chogauw</a><a href="#">Phachuled</a><a href="#">Tiebeft</a><a href="#">Ocid</a><a href="#">Izom</a><a href="#">Ort</a></div>
+                <div><b>Athod</b><a href="#">Pamuz</a><a href="#">Vapert</a><a href="#">Neesk</a><a href="#">Omemanen</a></div>
             </div>
             <div class="logo-container"><a href="webpage.php"><img class="logo" src="./img/LOGOBlack.png" alt="logo white"></a></div>
         </div>
@@ -222,7 +161,6 @@ include_once "header.php";
             </filter>
         </defs>
     </svg>
-</main>
 
 </body>
 

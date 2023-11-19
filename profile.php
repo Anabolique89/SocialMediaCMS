@@ -121,9 +121,11 @@ $profileInfo = new ProfileInfoView();
         <div class="input-wrapper">
         <input type="text" name="filedesc" placeholder="Image Description..." class="input-text">
         </div
-       
+        <div class="input-wrapper">
         <input type="file" name="file">
         <button type="submit" name="submit" class="header-login-a">UPLOAD</button>
+        </div>
+      
     </form>
 </div> 
 </div>';
@@ -135,5 +137,7 @@ $profileInfo = new ProfileInfoView();
 </section>
 
 </body>
+
+
 
 </html>
