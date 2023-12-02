@@ -1,6 +1,8 @@
 <?php
 session_start();
-include_once "includes/dbh.inc.php";
+include_once "classes/dbh.classes.php";
+$instance = new Dbh();
+$conn = $instance->connect();
 
 $id = $_SESSION['userid'];
 
@@ -12,60 +14,73 @@ if (isset($_POST['submit'])) {
     $fileError = $_FILES['file']['error'];
     $fileType = $_FILES['file']['type'];
 
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
+    $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
+    // $fileActualExt = strtolower($fileExt);
     $allowed = array('jpg', 'jpeg', 'png', 'gif');
 
-    if (in_array($fileActualExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 5000000) {
-                $stmt = mysqli_stmt_init($conn);
+    if (in_array($fileExt, $allowed) && $fileError === 0 && $fileSize < 5000000) {
+        try {
+            // Check if a profile image exists
+            $sqlCheckImage = "SELECT COUNT(*) as imageCount, NewImgName FROM profileimg WHERE UserID=?";
+            $stmt = $conn->prepare($sqlCheckImage);
+            $stmt->execute([$id]);
+            $rowCheckImage = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                // Get the old image name
-                $oldImageName = '';
-                $sqlOldImage = "SELECT NewImgName FROM profileimg WHERE UserID=?";
-                if (mysqli_stmt_prepare($stmt, $sqlOldImage)) {
-                    mysqli_stmt_bind_param($stmt, "s", $id);
-                    mysqli_stmt_execute($stmt);
-                    $resultOldImage = mysqli_stmt_get_result($stmt);
-                    $rowOldImage = mysqli_fetch_assoc($resultOldImage);
-                    $oldImageName = $rowOldImage['NewImgName'];
+            $oldImageName = $rowCheckImage['NewImgName'];
+
+            // Delete the old image
+            if (!empty($oldImageName)) {
+                $oldImagePath = 'artworks/' . $oldImageName;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+
+            // Upload the new image
+            $fileNameNew = "artworks" . $id . "." . $fileExt;
+            $fileDestination = 'artworks/' . $fileNameNew;
+
+            // Check if the file already exists
+            if (file_exists($fileDestination)) {
+                // Delete the existing file
+                unlink($fileDestination);
+            }
+
+            // Attempt to move the new file
+            if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                // Update or insert into the database
+                if ($rowCheckImage['imageCount'] > 0) {
+                    $sqlUpdate = "UPDATE profileimg SET NewImgName=?, status=0 WHERE UserID=?";
                 } else {
-                    echo "SQL statement failed!";
+                    $sqlUpdate = "INSERT INTO profileimg (UserID, NewImgName, status) VALUES (?, ?, 0)";
                 }
 
-                // Delete the old image
-                if (!empty($oldImageName)) {
-                    $oldImagePath = 'artworks/' . $oldImageName;
-                    if (file_exists($oldImagePath)) {
-                        unlink($oldImagePath);
-                    }
+                $stmt = $conn->prepare($sqlUpdate);
+                if (!$stmt) {
+                    echo "\nPDO::errorInfo():\n";
+                    print_r($conn->errorInfo());
+                    die();
                 }
 
-                // Upload the new image
-                $fileNameNew = "artworks" . $id . "." . $fileActualExt;
-                $fileDestination = 'artworks/' . $fileNameNew;
-                move_uploaded_file($fileTmpName, $fileDestination);
 
-                // Update database
-                $sqlUpdate = "UPDATE profileimg SET NewImgName=?, status=0 WHERE UserID=?";
-                if (mysqli_stmt_prepare($stmt, $sqlUpdate)) {
-                    mysqli_stmt_bind_param($stmt, "ss", $fileNameNew, $id);
-                    mysqli_stmt_execute($stmt);
-                } else {
-                    echo "SQL statement failed!";
+
+                $result = $stmt->execute([$fileNameNew, $id]);
+                if (!$result) {
+                    echo "\nPDO::errorInfo():\n";
+                    print_r($stmt->errorInfo());
+                    die();
                 }
+
 
                 header("Location: profile.php?uploadsuccess");
-                echo "<p>Upload Successful!</p>";
+                exit();
             } else {
-                echo "Your file is too big! Please upload a smaller file.";
+                echo "There was an error uploading your file!";
             }
-        } else {
-            echo "There was an error uploading your file!";
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
         }
     } else {
-        echo "You cannot upload files of this type!";
-        exit();
+        echo "Invalid file format or file size exceeds the limit.";
     }
 }

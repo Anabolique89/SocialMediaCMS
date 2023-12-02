@@ -23,7 +23,7 @@ session_start();
                     <li><a href="webpage.php">HOME</a></li>
                     <li><a href="about.php">ABOUT</a></li>
                     <li><a href="map.php">MAP</a></li>
-                    <li><a href="features.php">FEATURES</a></li>
+                    <li><a href="walls.php">WALLS</a></li>
                     <li><a href="community.php">COMMUNITY</a></li>
                     <li><a href="shops.php">SHOPS</a></li>
                     <li><a href="contact.php">CONTACT</a></li>

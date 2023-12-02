@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
 
                         //insert image data in database
 
-                        $sql = "INSERT INTO artwork2 (TitleArtwork, DescArtwork, ImgFullNameArtwork, OrderArtwork, UserId) VALUES (?, ?, ?, ?, ?);";
+                        $sql = "INSERT INTO artwork2 (TitleArtwork, DescArtwork, ImgFullNameArtwork, OrderArtwork, UserID) VALUES (?, ?, ?, ?, ?);";
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
                             echo " SQL statement failed!";
                         } else {

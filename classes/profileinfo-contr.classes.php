@@ -13,9 +13,9 @@ class ProfileInfoContr extends ProfileInfo
     }
     public function defaultProfileInfo()
     {
-        $profileAbout = "About yourself bla bla bla random text";
+        $profileAbout = "Describe your profile with a sentence.";
         $profileTitle = "Hi! I am " . $this->userID;
-        $profileText = "Welcome to my profile page! Soon you will be able to read more and bla bla bla";
+        $profileText = "Welcome to my profile page! Soon you will be able to read more about my art.";
         $this->setProfileInfo($profileAbout, $profileTitle, $profileText, $this->userUID);
     }
 
