@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
             if ($fileSize < 2000000) {
                 //adding image to gallery
                 $imageFullName = $newFileName . "." . uniqid("", true) . "." . $fileActualExt;
-                $fileDestination = "../artworks/" . $imageFullName;
+                $fileDestination = "../img/artworks/" . $imageFullName;
 
                 include_once "dbh.inc.php";
                 //error handling
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
                     header("Location: ../profile.php?upload=empty");
                     exit();
                 } else {
-                    $sql = "SELECT * FROM artwork2;";
+                    $sql = "SELECT * FROM artwork;";
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         echo "SQL statement failed!";
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
 
                         //insert image data in database
 
-                        $sql = "INSERT INTO artwork2 (TitleArtwork, DescArtwork, ImgFullNameArtwork, OrderArtwork, UserID) VALUES (?, ?, ?, ?, ?);";
+                        $sql = "INSERT INTO artwork (TitleArtwork, DescArtwork, ImgFullNameArtwork, OrderArtwork, UserID) VALUES (?, ?, ?, ?, ?);";
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
                             echo " SQL statement failed!";
                         } else {

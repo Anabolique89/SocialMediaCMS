@@ -8,7 +8,7 @@ class Dbh
         try {
             $username = "root";
             $password = "";
-            $dbh = new PDO('mysql:host=localhost;dbname=ArtzoroDB', $username, $password);
+            $dbh = new PDO('mysql:host=localhost;dbname=ArtzoroDB3', $username, $password);
             return $dbh;
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";

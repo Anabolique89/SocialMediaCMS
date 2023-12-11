@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 
             // Delete the old image
             if (!empty($oldImageName)) {
-                $oldImagePath = 'artworks/' . $oldImageName;
+                $oldImagePath = 'img/artworks/' . $oldImageName;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 
             // Upload the new image
             $fileNameNew = "artworks" . $id . "." . $fileExt;
-            $fileDestination = 'artworks/' . $fileNameNew;
+            $fileDestination = 'img/artworks/' . $fileNameNew;
 
             // Check if the file already exists
             if (file_exists($fileDestination)) {

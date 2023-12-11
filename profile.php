@@ -27,7 +27,7 @@ $profileInfo = new ProfileInfoView();
                         $result = mysqli_stmt_get_result($stmt);
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo '   <a href="#">
-                            <img class="profile-info-img" style="background-image: url(artworks/' . $row["NewImgName"] . ');">
+                            <img class="profile-info-img" style="background-image: url(img/artworks/' . $row["NewImgName"] . ');">
                         </a> ';
                         }
                     }
@@ -88,7 +88,7 @@ $profileInfo = new ProfileInfoView();
             <div class="gallery-container">
                 <?php
                 include_once 'includes/dbh.inc.php';
-                $sql = "SELECT * FROM artwork2 ORDER BY OrderArtwork DESC";
+                $sql = "SELECT * FROM artwork ORDER BY OrderArtwork DESC";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     echo "SQL statement failed";
@@ -97,7 +97,7 @@ $profileInfo = new ProfileInfoView();
                     $result = mysqli_stmt_get_result($stmt);
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '   <a href="#">
-                            <div class="image" style="background-image: url(artworks/' . $row["ImgFullNameArtwork"] . ');"></div>
+                            <div class="image" style="background-image: url(img/artworks/' . $row["ImgFullNameArtwork"] . ');"></div>
                             <h3>' . $row["TitleArtwork"] . '</h3>
                             <p>' . $row["DescArtwork"] . '</p>
                         </a> ';

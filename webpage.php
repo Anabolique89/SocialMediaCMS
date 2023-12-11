@@ -57,7 +57,7 @@ session_start();
                 <div class="wrapper">
                     <div class="index-intro-c1">
 
-                        <div class="video"><img src="graphics/szxs.png" alt="fluidelement 1" class="hero-graphic1"></div>
+                        <div class="video"><img src="img/graphics/szxs.png" alt="fluidelement 1" class="hero-graphic1"></div>
                         <p>A platform that connects the urban art community worldwide and allows artists to explore new terrain and expand their creative talents easily all the while meeting new people and sharing new experiences with fellow artists. </p>
                     </div>
                     <div class="index-intro-c2">
@@ -75,7 +75,7 @@ session_start();
                 <div class="gallery-container">
                     <?php
                     include_once 'includes/dbh.inc.php';
-                    $sql = "SELECT * FROM artwork2 ORDER BY OrderArtwork DESC";
+                    $sql = "SELECT * FROM artwork ORDER BY OrderArtwork DESC";
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         echo "SQL statement failed";
@@ -84,7 +84,7 @@ session_start();
                         $result = mysqli_stmt_get_result($stmt);
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo '   <a href="#">
-                <div class="image" style="background-image: url(artworks/' . $row["ImgFullNameArtwork"] . ');"></div>
+                <div class="image" style="background-image: url(img/artworks/' . $row["ImgFullNameArtwork"] . ');"></div>
                 <h3>' . $row["TitleArtwork"] . '</h3>
                 <p>' . $row["DescArtwork"] . '</p>
             </a> ';
@@ -106,7 +106,7 @@ session_start();
                     <div class="index-intro-c1">
 
                         <div class="video">
-                            <img src="graphics/szxc.png" alt="fluidelement 2" class="hero-graphic">
+                            <img src="img/graphics/szxc.png" alt="fluidelement 2" class="hero-graphic">
                         </div>
                         <p>If you are an artist or a stakeholder and you want to share a new painted wall with the world for them to paint on or just explore in a certain location, we are here to make that happen. Just contact us and we will verify the information and make it happen! </p>
                     </div>
@@ -143,7 +143,7 @@ session_start();
                     <div class="index-intro-c1">
 
                         <div class="video">
-                            <img src="graphics/sdfc.png" alt="fluidelement 3" class="hero-graphic">
+                            <img src="img/graphics/sdfc.png" alt="fluidelement 3" class="hero-graphic">
                         </div>
                         <p>If you are a registered user and have any legal walls in mind don't hesitate to add them to our map. By doing this you are sharing with and helping
                             thousands of artists that are looking for places to paint or explore. </p>
@@ -162,7 +162,7 @@ session_start();
                     <div class="index-intro-c1">
 
                         <div class="video">
-                            <img src="graphics/sds.png" alt="fluidelement4" class="hero-graphic">
+                            <img src="img/graphics/sds.png" alt="fluidelement4" class="hero-graphic">
                         </div>
                         <p>If you are an artist or a stakeholder and you want to share a new painted wall with the world for them to paint on or just explore in a certain location, we are here to make that happen. Just contact us and we will verify the information and make it happen! </p>
                     </div>
@@ -173,7 +173,7 @@ session_start();
                 </div>
             </div>
         </section>
-        <div class="main"></div>
+
         <div class="footer">
             <div class="bubbles">
                 <div class="bubble" style="--size:4.257872916809046rem; --distance:7.902498874020245rem; --position:60.656263684556194%; --time:2.070907867983733s; --delay:-2.376638478628786s;"></div>

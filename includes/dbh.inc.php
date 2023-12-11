@@ -2,6 +2,6 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "ArtzoroDB";
+$dbname = "ArtzoroDB3";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
