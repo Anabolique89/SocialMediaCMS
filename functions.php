@@ -6,21 +6,6 @@ $conn = $instance->connect();
 
 $id = $_SESSION['userid'];
 
-if (isset($_POST['submit'])) {
-    $file = $_FILES['file'];
-
-    // Pass the database connection to the functions
-    $uploadResult = uploadNewImage($file, $id, $conn);
-
-    if ($uploadResult['success']) {
-        updateDatabase($id, $uploadResult['fileNameNew'], $uploadResult['imageCount'], $conn);
-        header("Location: profile.php?uploadsuccess");
-        exit();
-    } else {
-        echo $uploadResult['message'];
-    }
-}
-
 
 function deleteOldImage($oldImage)
 {
@@ -78,7 +63,7 @@ function UpdateDatabase($conn, $id, $imageCount, $fileNameNew)
     if ($imageCount > 0) {
         $sqlUpdate = "UPDATE profileimg SET NewImgName=?, status=0 WHERE UserID=?";
     } else {
-        $sqlUpdate = "INSERT INTO profileimg (UserID, NewImgName, status) VALUES (?, ?, 0)";
+        $sqlUpdate = "INSERT INTO profileimg (NewImgName, UserID, status) VALUES (?, ?, 0)";
     }
 
     $stmt = $conn->prepare($sqlUpdate);

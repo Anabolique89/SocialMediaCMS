@@ -1,11 +1,10 @@
 <?php
-session_start();
-
-include "classes/dbh.classes.php";
-include "classes/profileinfo.classes.php";
-include "classes/profileinfo-contr.classes.php";
-include "classes/profileinfo-view.classes.php";
-$profileInfo = new ProfileInfoView();
+include_once "../header.php";
+include "../classes/dbh.classes.php";
+include "../classes/profileinfo.classes.php";
+include "../classes/profileinfo-contr.classes.php";
+include "../classes/profileinfo-view.classes.php";
+// $profileInfo = new ProfileInfoView();
 ?>
 
 
@@ -29,7 +28,7 @@ $profileInfo = new ProfileInfoView();
             <p>What's your profile?</p>
             <div class="form-wrapper">
 
-                <form action="includes/signup.inc.php" method="post" class="signup-form">
+                <form action="../includes/signup.inc.php" method="post" class="signup-form">
                     <div class="input-wrapper">
                         <input type="text" name="username" placeholder="Username" class="input-text">
                     </div>
@@ -44,6 +43,12 @@ $profileInfo = new ProfileInfoView();
                     </div>
                     <div class="input-wrapper">
                         <input type="text" name="UserProfile" placeholder="Artist or Artlover?" class="input-text">
+                    </div>
+                    <div class="input-wrapper">
+                        <select name="role">
+                            <option value="Admin">Admin</option>
+                        </select>
+
                     </div>
                     <br>
                     <button type="submit" name="submit" class="submit-button btn">CREATE ACCOUNT</button>

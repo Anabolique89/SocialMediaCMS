@@ -15,7 +15,7 @@ session_start();
 
 <body>
     <main class="main">
-        <img src="./graphics/map-paint.png" class="graphics" alt="graphic1">
+        <img src="./img/graphics/map-paint.png" class="graphics" alt="graphic1">
 
         <div class="onboarding-page2">
             <h1 class="roboto-uppercase-heading">Urban Art Worldwide</h1>

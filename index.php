@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if (isset($_SESSION['username'])) {
+    header("Location: webpage.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@ session_start();
 
 <body>
     <main class="main">
-        <img src="./graphics/onboarding1.png" class="graphics" alt="graphic1">
+        <img src="./img/graphics/onboarding1.png" class="graphics" alt="graphic1">
 
         <div class="onboarding-page">
             <h1 class="roboto-uppercase-heading">Welcome to Artzoro</h1>

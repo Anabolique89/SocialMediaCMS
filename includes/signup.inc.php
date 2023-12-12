@@ -10,6 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pwdRepeat = htmlspecialchars($_POST["pwdRepeat"], ENT_QUOTES, 'UTF-8');
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES, 'UTF-8');
     $profile = htmlspecialchars($_POST["UserProfile"], ENT_QUOTES, 'UTF-8');
+    $role = htmlspecialchars($_POST["role"], ENT_QUOTES, 'UTF-8');
+
+    if (empty($role)) {
+        $role = "user";
+    }
 
     //instantiate signup controller class - create an object based off  a class 
 
@@ -17,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "../classes/signup.classes.php";
     include "../classes/signup.contr.classes.php";
 
-    $signup = new SignupContr($username, $pwd, $pwdRepeat, $email, $profile);
+    $signup = new SignupContr($username, $pwd, $pwdRepeat, $email, $profile, $role);
 
 
     //running error handlers & user signup

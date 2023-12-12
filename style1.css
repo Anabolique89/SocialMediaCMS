@@ -1,3 +1,4 @@
+@import "compass/css3";
 * {
     margin: 0;
     padding: 0;
@@ -312,6 +313,7 @@ img.logo-container{
     padding: 7rem 0rem;
     
 }
+/*
 .map{
   background-image: url("img/map.jpg");
   background-repeat: no-repeat;
@@ -320,6 +322,7 @@ img.logo-container{
    padding: 7rem 0rem;
    
 }
+*/
 
 .profile-bg .wrapper {
     height: 100%;
@@ -332,7 +335,7 @@ img.logo-container{
 }
 
 .profile-info-img {
-  background-image: url('artworks/default.jpg');
+  background-image: url('img/artworks/default.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 100px;
@@ -609,6 +612,7 @@ input::file-selector-button:hover {
   padding-top: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .cases-links h2 {
@@ -708,6 +712,12 @@ flex-direction: row;
   margin-right: auto;
   
 }
+.contact-form-wrapper{
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
 .input-wrapper{
   display: flex;
   align-items: center;
@@ -770,3 +780,14 @@ width: 80%;
   color: #AAA;
 }
 
+.Artworks-title{
+  font-family: 'Gotham Black';
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.newsletter-p{
+  align-items: center;
+  text-align: center;
+}

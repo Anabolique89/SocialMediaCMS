@@ -12,16 +12,16 @@ error_reporting(E_ALL);
 class Signup extends Dbh
 {
 
-    protected function setUser($username, $pwd, $email, $profile)
+    protected function setUser($username, $pwd, $email, $profile, $role)
     {
         //separate data from query to prevent sql injection
 
-        $stmt = $this->connect()->prepare('INSERT INTO user (username, pwd, email, UserProfile) VALUES (?, ?, ?, ?);');
+        $stmt = $this->connect()->prepare('INSERT INTO user (username, pwd, email, UserProfile, role) VALUES (?, ?, ?, ?, ?);');
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 
 
-        if (!$stmt->execute(array($username, $hashedPwd, $email, $profile))) {
+        if (!$stmt->execute(array($username, $hashedPwd, $email, $profile, $role))) {
             $stmt = null;
             header("location: ../indexsignup.php?error=stmtfailed");
             exit();

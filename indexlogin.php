@@ -18,7 +18,7 @@ session_start();
 
 
     <main>
-        <img src="./graphics/bubbles.png" class="graphics" alt="bubbles">
+        <img src="./img/graphics/bubbles.png" class="graphics" alt="bubbles">
         <div class="onboarding-page-login">
             <div class="logo-container"><a href="homepage.php"><img src="./img/LOGOWhite.png" alt="logo white"></a></div>
             <p>Enter your account</p>

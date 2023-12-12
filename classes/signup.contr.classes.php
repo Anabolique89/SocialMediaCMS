@@ -11,16 +11,18 @@ class SignupContr extends Signup
     private $pwdRepeat;
     private $email;
     private $profile;
+    private $role;
 
     //create constructor
 
-    public function __construct($username, $pwd, $pwdRepeat, $email, $profile)
+    public function __construct($username, $pwd, $pwdRepeat, $email, $profile, $role)
     {
         $this->username = $username;
         $this->pwd = $pwd;
         $this->pwdRepeat = $pwdRepeat;
         $this->email = $email;
         $this->profile = $profile;
+        $this->role = $role;
     }
 
     //error handlers
@@ -53,7 +55,7 @@ class SignupContr extends Signup
             header("location: ../indexsignup.php?error=useroremailtaken");
             exit();
         }
-        $this->setUser($this->username, $this->pwd, $this->email, $this->profile);
+        $this->setUser($this->username, $this->pwd, $this->email, $this->profile, $this->role);
     }
 
     private function emptyInput()

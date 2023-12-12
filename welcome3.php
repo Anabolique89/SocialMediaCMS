@@ -16,7 +16,7 @@ session_start();
 <body>
 
     <main class="main">
-        <img src="./graphics/circle-world-map2.png" class="graphics" alt="graphic3">
+        <img src="./img/graphics/circle-world-map2.png" class="graphics" alt="graphic3">
         <div class="onboarding-page3">
             <h1 class="roboto-uppercase-heading">Add new walls</h1>
             <p class="welcome-heading-small">Track down new terrain</p>

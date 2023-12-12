@@ -19,10 +19,7 @@ $profileInfo = new ProfileInfoView();
                     //trying to change profile picture here! - but first I'm trying to display a picture next to my form - which is not working. 
                     include_once 'includes/dbh.inc.php';
 
-                    // $sql = "SELECT * FROM user";
-                    // $result = mysqli_query($conn, $sql);
-                    // if (mysqli_num_rows($result) > 0) {
-                    //     while ($row = mysqli_fetch_assoc($result)) {
+
                     $id = $_SESSION['userid'];
                     $sqlImg = "SELECT * FROM profileimg WHERE UserID='$id'";
                     $resultImg = mysqli_query($conn, $sqlImg);

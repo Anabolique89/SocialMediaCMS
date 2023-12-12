@@ -62,7 +62,7 @@ session_start();
                     </div>
                     <div class="index-intro-c2">
                         <h2>Welcome to<br>ArtZoro</h2>
-                        <a clas="header-login-a" href="map.php">FIND WALLS</a>
+                        <a class="header-login-a" href="map.php">FIND WALLS</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,6 @@ session_start();
 
                     ?>
                 </div>
-                <button class="btn header-login-a ">See all Artworks</button>
             </div>
         </section>
         <!-- publish new walls section -->
@@ -112,7 +111,7 @@ session_start();
                     </div>
                     <div class="index-intro-c2">
                         <h2>Review<br>Walls</h2>
-                        <a clas="header-login-a" href="map.php">REVIEW WALL</a>
+                        <a href="map.php">REVIEW WALL</a>
                     </div>
                 </div>
             </div>
@@ -121,12 +120,14 @@ session_start();
         <section class="newsletter">
             <div class="newsletter-bg">
                 <div class="wrapper">
-                    <h2 class="newsletter">NEWSLETTER</h2>
-                    <p class="newsletter-p">Subscribe to our newsletter to receive updates and news.</p>
+
                     <form action="newsletter.php">
+                        <h2 class="Artworks-title">Newsletter</h2>
+                        <p class="newsletter-p">Subscribe to our newsletter to receive updates and news.</p>
                         <div class="input-wrapper">
                             <input type="text" name="email" placeholder="Your email here..." class="input-text">
                         </div>
+                        <a href="map.php">SUBSCRIBE</a>
                     </form>
                 </div>
             </div>
@@ -138,7 +139,7 @@ session_start();
                 <div class="wrapper">
                     <div class="index-intro-c2">
                         <h2>Add New <br>Walls</h2>
-                        <a clas="header-login-a" href="map.php">ADD NEW WALL</a>
+                        <a href="map.php">ADD NEW WALL</a>
                     </div>
                     <div class="index-intro-c1">
 
@@ -153,6 +154,32 @@ session_start();
             </div>
         </section>
         <!--wall feed or POST FEED goes here-->
+        <!--contact form-->
+        <section class="index-intro">
+            <div class="contact-form-wrapper">
+                <h2 class="Artworks-title">CONTACT FORM</h2>
+                <p>Want to reach out or Have any questions?</p>
+                <br>
+                <form class="about-form" action="contactform.php" method="post">
+                    <div class="input-wrapper2">
+                        <input type="text" name="name" placeholder="Name" class="input-text2" required>
+                    </div><br>
+                    <div class="input-wrapper2">
+                        <input type="text" name="mail" placeholder="Email" class="input-text2" required>
+                    </div><br>
+                    <div class="input-wrapper2">
+                        <input type="text" name="subject" placeholder="Subject" class="input-text2" required>
+                    </div>
+                    <br>
+                    <div class="input-wrapper2">
+                        <textarea name="introtext" rows="10" cols="30" class="input-text2" placeholder="Your message here..."></textarea>
+                    </div>
+                    <br>
+                    <button class="follow-btn" type="submit" name="submit">SEND</button>
+
+                </form>
+            </div>
+        </section>
         <!-- find  new walls section -->
         <section class="index-intro">
             <div class="index-intro-bg">
@@ -168,7 +195,7 @@ session_start();
                     </div>
                     <div class="index-intro-c2">
                         <h2>Find New<br>Walls</h2>
-                        <a clas="header-login-a" href="map.php">FIND WALLS</a>
+                        <a href="map.php">FIND WALLS</a>
                     </div>
                 </div>
             </div>
