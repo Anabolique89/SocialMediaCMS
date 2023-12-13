@@ -9,7 +9,15 @@ include "classes/profileinfo-view.classes.php";
 
 $profileInfo = new ProfileInfoView();
 ?>
-
+<style>
+    .message-container {
+        background-color: #dff0d8;
+        border: 1px solid #3c763d;
+        color: #3c763d;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+</style>
 <section class="profile">
     <div class="profile-bg">
         <div class="wrapper">
@@ -85,7 +93,17 @@ $profileInfo = new ProfileInfoView();
         <div class="cases-links">
 
             <h2 class="Artworks-title">Artworks</h2>
+            <?php
+            if (isset($_SESSION['message'])) {
+                // Display the message inside a styled div
+                echo '<div class="message-container">' . $_SESSION['message'] . '</div>';
+
+                // Clear or unset the message to avoid displaying it again on subsequent page loads
+                unset($_SESSION['message']);
+            }
+            ?>
             <div class="gallery-container">
+
                 <?php
                 include_once 'includes/dbh.inc.php';
                 $sql = "SELECT * FROM artwork ORDER BY OrderArtwork DESC";
@@ -101,11 +119,19 @@ $profileInfo = new ProfileInfoView();
                             <h3>' . $row["TitleArtwork"] . '</h3>
                             <p>' . $row["DescArtwork"] . '</p>
                         </a> ';
-                    }
-                }
-
+                        if ($_SESSION["Role"] == "Admin") {
 
                 ?>
+                            <form action="delete.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $row["id"] ?>"> <!-- Replace '123' with your actual item ID -->
+                                <button type="submit" name="delete">Delete</button>
+                            </form> <?php
+
+                                }
+                            }
+                        }
+
+                                    ?>
             </div>
             <?php
             if (isset($_SESSION['username'])) {

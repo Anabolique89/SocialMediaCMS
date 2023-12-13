@@ -69,3 +69,19 @@ function UpdateDatabase($conn, $id, $imageCount, $fileNameNew)
     $stmt = $conn->prepare($sqlUpdate);
     $stmt->execute([$fileNameNew, $id]);
 }
+function deleteArtwork($id, $conn)
+{
+    $sqlSelect = "SELECT ImgFullNameArtwork FROM artwork WHERE id = :id";
+    $stmtSelect = $conn->prepare($sqlSelect);
+    $stmtSelect->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmtSelect->execute();
+    $imageFilename = $stmtSelect->fetchColumn();
+    $stmtSelect->closeCursor();
+
+
+    $sqlDelete = "DELETE from artwork WHERE id = ?";
+    $stmt = $conn->prepare($sqlDelete);
+    $stmt->execute([$id]);
+    $stmt->closeCursor();
+    deleteOldImage($imageFilename);
+}

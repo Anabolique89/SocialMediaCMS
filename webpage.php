@@ -172,7 +172,7 @@ session_start();
                     </div>
                     <br>
                     <div class="input-wrapper2">
-                        <textarea name="introtext" rows="10" cols="30" class="input-text2" placeholder="Your message here..."></textarea>
+                        <textarea name="message" rows="10" cols="30" class="input-text2" placeholder="Your message here..."></textarea>
                     </div>
                     <br>
                     <button class="follow-btn" type="submit" name="submit">SEND</button>

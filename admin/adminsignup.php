@@ -1,12 +1,11 @@
 <?php
-include_once "../header.php";
+session_start();
 include "../classes/dbh.classes.php";
 include "../classes/profileinfo.classes.php";
 include "../classes/profileinfo-contr.classes.php";
 include "../classes/profileinfo-view.classes.php";
 // $profileInfo = new ProfileInfoView();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,15 +15,15 @@ include "../classes/profileinfo-view.classes.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../style2.css">
 </head>
 
 <body>
 
     <main>
-        <img src="./img/graphics/bubbles.png" class="graphics" alt="bubbles">
+        <img src="../img/graphics/bubbles.png" class="graphics" alt="bubbles">
         <div class="onboarding-page-login">
-            <div class="logo-container"><a href="homepage.php"><img src="./img/LOGOWhite.png" alt="logo white"></a></div>
+            <div class="logo-container"><a href="homepage.php"><img src="..git/img/LOGOWhite.png" alt="logo white"></a></div>
             <p>What's your profile?</p>
             <div class="form-wrapper">
 

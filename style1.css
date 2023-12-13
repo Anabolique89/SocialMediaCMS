@@ -791,3 +791,10 @@ width: 80%;
   align-items: center;
   text-align: center;
 }
+.message-container {
+  background-color: #dff0d8;
+  border: 1px solid #3c763d;
+  color: #3c763d;
+  padding: 15px;
+  margin-bottom: 20px;
+}
