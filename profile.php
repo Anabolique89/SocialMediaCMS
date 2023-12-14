@@ -9,14 +9,7 @@ include "classes/profileinfo-view.classes.php";
 
 $profileInfo = new ProfileInfoView();
 ?>
-<style>
-    .message-container {
-        background-color: #dff0d8;
-        border: 1px solid #3c763d;
-        color: #3c763d;
-        padding: 15px;
-        margin-bottom: 20px;
-    }
+
 </style>
 <section class="profile">
     <div class="profile-bg">
@@ -43,19 +36,22 @@ $profileInfo = new ProfileInfoView();
 
                 </div>
                 <div class="profile-info-about">
-                    <p> <?php
+                    <div class="together">
+                        <p> <?php
 
-                        if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-                            echo $_SESSION["username"];
-                        }
+                            if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+                                echo $_SESSION["username"];
+                            }
 
-                        ?></p>
+                            ?></p>
+                        <a href="profilesettings.php" class="follow-btn follow">FOLLOW</a>
+                    </div>
                     <h3>ABOUT</h3>
                     <p class="profile-username-display"> <?php
                                                             $profileInfo->fetchAbout($_SESSION["userid"]);
                                                             ?></p>
-                    <h3>FOLLOWERS</h3>
-                    <h3>FOLLOWING</h3>
+                    <h3>FOLLOWERS <span class="followers">56</span></h3>
+                    <h3>FOLLOWING <span class="following">23</span></h3>
 
 
                     <div class="break"></div>
@@ -64,6 +60,7 @@ $profileInfo = new ProfileInfoView();
             </div>
             <div class="profile-content">
                 <div class="profile-intro">
+                    <p>Other social media icons go here</p>
                     <h3> <?php
                             $profileInfo->fetchTitle($_SESSION["userid"]);
                             ?></h3>
@@ -84,6 +81,7 @@ $profileInfo = new ProfileInfoView();
                         <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut lacinia ligula eget gravida fermentum. Curabitur arcu risus, ornare eu nibh a, porta interdum nunc. Mauris gravida velit dui, eu ultrices lacus finibus sit amet.</p>
                         <p>16:11 - 11/11/2021</p>
                     </div>
+                    <a href="profilesettings.php" class="follow-btn posts">SEE ALL POSTS</a>
                 </div>
 
             </div>
@@ -94,6 +92,7 @@ $profileInfo = new ProfileInfoView();
 
             <h2 class="Artworks-title">Artworks</h2>
             <?php
+            //when admin deletes artwork
             if (isset($_SESSION['message'])) {
                 // Display the message inside a styled div
                 echo '<div class="message-container">' . $_SESSION['message'] . '</div>';
@@ -163,7 +162,26 @@ $profileInfo = new ProfileInfoView();
     </div>
     </div>
 </section>
+<section class="index-intro">
+    <div class="index-intro-bg">
 
+        <div class="wrapper">
+            <div class="index-intro-c2">
+                <h2>Add New <br>Walls</h2>
+                <a href="map.php">ADD NEW WALL</a>
+            </div>
+            <div class="index-intro-c1">
+
+                <div class="video">
+                    <img src="img/graphics/sdfc.png" alt="fluidelement 3" class="hero-graphic">
+                </div>
+                <p>If you are a registered user and have any legal walls in mind don't hesitate to add them to our map. By doing this you are sharing with and helping
+                    thousands of artists that are looking for places to paint or explore. </p>
+            </div>
+
+        </div>
+    </div>
+</section>
 </body>
 
 
